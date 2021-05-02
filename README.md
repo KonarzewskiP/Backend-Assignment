@@ -2,14 +2,15 @@
 
 An RESTful API for the software assessment. It is build with Java, and Spring Boot. For testing the application I used Junit 5, Mockito and AssertJ.
 
-###Requirements
+### Requirements
 
 You have been tasked with building part of a simple vehicle system that allows
 customers to borrow vehicles. Your code should provide the following functionality:
 * List all available vehicles.
 * Borrow and return vehicle. 
 
-##Design
+## Design
+
 For the development of the architecture I have used a concept of OOP and SOLID principles. By following these concepts
 I wanted to achieve strong encapsulation and improve the maintainability and extensibility of the project.
 
@@ -23,13 +24,13 @@ I designed the application to consist of five modules:
 
 ### Controllers
 
-The controller class is created in a way to keep it as simple and without any complicated logic. That way,
-the controller class is only responsible for receiving the request and passing it to the service where all the business logic happen.
+The controller class is created in a way to keep it simple and without any complicated logic. That way,
+the controller class is only responsible for receiving the request and passing it to the service, where all the business logic happen.
 
 In the same package, there is a separate class designed specifically for error handling. By this class, I handle custom errors
 for Service and Repository layers.
 
-###Models
+### Models
 
 During the designing of the models, I tried to keep strong encapsulation.
 By moving all classes related to the Vehicle into a separate package and declare all instance variables of the Vehicle class as default, I was able to 
@@ -38,9 +39,9 @@ expose only minimum information outside the package.
 To communicate outside the API there are separate DTO classes. DTO classes contains only minimum information related to the request and
 have timestamped of the specific action performed on the vehicle. To accomplish requirements, I created only DTO for renting, returning and listing vehicles.  
 
-###Repositories
+### Repositories
 
-One of the requirement is to not use JDBC. To meet this requirement I created VehicleRepository.class with instance Variable of type
+One of the requirement is not to use JDBC. To meet this requirement I created VehicleRepository class with instance Variable of type
 List to mimic the database. Inside the class, I implemented only methods necessary to achieve assessment requirements.
 
 ###Services
@@ -48,7 +49,7 @@ List to mimic the database. Inside the class, I implemented only methods necessa
 The only service used in the application is VehicleService class. The service contains all the logic to manipulate the vehicle object.
 
 ##Test
-Because one of the requirements is to not use JDBC, to test my application, I created interface Fixtures under package named fixtures. 
+To test my application, I created interface Fixtures under package named fixtures with valid data for tests. 
 
 ## Steps to Setup
 
